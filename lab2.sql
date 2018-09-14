@@ -4,7 +4,7 @@ CREATE TABLE countries (
   country_id SERIAL PRIMARY KEY ,
   country_name varchar(50),
   region_id INTEGER,
-  populaation INTEGER
+  population INTEGER
 );
 
 INSERT INTO countries VALUES (DEFAULT ,'Kazakhstan', 1, 18000000);
@@ -33,11 +33,11 @@ UPDATE countries_new
   SET region_id = 1
     WHERE region_id ISNULL ;
 
-UPDATE countries SET populaation = populaation * 1.1
-  RETURNING country_name, populaation AS new_population;
+UPDATE countries SET population = population * 1.1
+  RETURNING country_name, population AS new_population;
 
 DELETE FROM countries
-    WHERE populaation < 100000;
+    WHERE population < 100000;
 
 DELETE FROM countries_new AS c USING countries AS c1
   WHERE c.country_id = c1.country_id
