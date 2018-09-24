@@ -20,3 +20,6 @@ CREATE TABLE data (
   user_name varchar(50),
   user_id int
 );
+
+DROP TABLE users;
+DROP DATABASE lab1;
